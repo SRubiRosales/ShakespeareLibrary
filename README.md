@@ -1,3 +1,61 @@
+For run this project just follow the next steps:
+
+1. Clone GitHub repo using the repository url.
+
+Find a directory (folder)on your computer where you want to store the project. For example, htdocs if you are using xampp. That is where you will run the following command, which will pull the project from github and create a copy of it on your local computer at the “htdocs” directory.
+
+git clone SRubiRosales/ShakespeareLibrary
+
+2. Change directory
+
+To execute the rest of the commands, you will need to be inside that project . Type cd ShakespeareLibrary to move to the working location of the project file we just created.
+
+3. Install Composer Dependencies
+Running composer, checks the composer.json file which is submitted to the github repo and lists all of the composer (PHP) packages that your repo requires.
+
+composer install
+
+4. Install NPM Dependencies
+Just like step 4, where we installed the composer PHP packages, installing the Javascript (or Node) packages is required. All packages that a repo requires is listed in the packages.json file which is submitted to the github repo.
+
+npm install
+
+5. Create a copy of your .env file
+.env files are not committed to source control for security reasons. But there is a .env.example which is a template of the .env file that the project have. So we will make a copy of the .env.example file and create a .env file from it.
+
+cp .env.example .env
+
+6. Generate an app encryption key
+Every laravel project requires an app encryption key which is generally randomly generated and stored in your .env file. The app will use this encryption key to encode various elements of your application from cookies to password hashes and more.
+
+php artisan key:generate
+
+7. Create an empty database for our application
+Create an empty database called "shakespeare"
+
+8. Add database information to allow Laravel to connect to the database.
+In the .env file fill in the DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD options to match the details of the database you just created. This will allow us to run migrations and seed the database.
+
+9. Migrate the database
+After filling the details in the .env type this:
+php artisan migrate
+Check your database to make sure everything migrated.
+
+10. Seed the database
+After the migrations are complete and you have the database structure required, then you can seed the database (which means add dummy data to it).
+php artisan db:seed
+
+11. Run the app
+Use the serve Artisan command:
+
+php artisan serve
+
+By default the HTTP-server will listen to port 8000. However if that port is already in use or you wish to serve multiple applications this way, you might want to specify what port to use. 
+
+12. Log in
+Use "admin@mail.com" as email and "password" as password por log in.
+Now you can test the application
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -20,32 +78,6 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
 
 ## Contributing
 
